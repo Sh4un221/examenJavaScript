@@ -8,6 +8,7 @@ let botonTodosLosProductos = document.querySelector("#todos")
 let botonAbrigos = document.querySelector("#abrigos")
 let botonCamisetas = document.querySelector("#camisetas")
 let botonPantalones = document.querySelector("#pantalones")
+let title=document.querySelector("#productsTitle")
 
 botonTodosLosProductos.classList.remove("all__selector")
 botonAbrigos.classList.remove("all__selector")
@@ -21,6 +22,7 @@ export const todosLosProductos = async () => {
     let pantalones = await getAllPantalones()
     let camisetas = await getAllCamisetas()
     botonTodosLosProductos.addEventListener("click", () => {
+        title.innerText="Todos los productos"
         botonTodosLosProductos.classList.add("all__selector")
         botonAbrigos.classList.remove("all__selector")
         botonCamisetas.classList.remove("all__selector")
@@ -99,6 +101,7 @@ export const Abrigos = async () => {
 
     let abrigos = await getAllAbrigo()
     botonAbrigos.addEventListener("click", () => {
+        title.innerText="Abrigos"
         botonAbrigos.classList.add("all__selector")
         botonTodosLosProductos.classList.remove("all__selector")
         botonCamisetas.classList.remove("all__selector")
@@ -133,6 +136,7 @@ export const Camisetas = async () => {
 
     let camisetas = await getAllCamisetas()
     botonCamisetas.addEventListener("click", () => {
+        title.innerText="Camisetas"
         botonTodosLosProductos.classList.remove("all__selector")
         botonAbrigos.classList.remove("all__selector")
         botonPantalones.classList.remove("all__selector")
@@ -167,6 +171,7 @@ export const Pantalones = async () => {
 
     let pantalones = await getAllPantalones()
     botonPantalones.addEventListener("click", () => {
+        title.innerText="Pantalones"
         botonTodosLosProductos.classList.remove("all__selector")
         botonAbrigos.classList.remove("all__selector")
         botonCamisetas.classList.remove("all__selector")
