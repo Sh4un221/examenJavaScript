@@ -8,12 +8,13 @@ let botonTodosLosProductos = document.querySelector("#todos")
 let botonAbrigos = document.querySelector("#abrigos")
 let botonCamisetas = document.querySelector("#camisetas")
 let botonPantalones = document.querySelector("#pantalones")
-let title=document.querySelector("#productsTitle")
-
-botonTodosLosProductos.classList.remove("all__selector")
-botonAbrigos.classList.remove("all__selector")
-botonCamisetas.classList.remove("all__selector")
-botonPantalones.classList.remove("all__selector")
+let title = document.querySelector("#productsTitle")
+let numero = document.querySelector("#numero")
+let numeroval = 0
+numero.innerText = `${numeroval}`
+export const clickInicio=()=>{
+    botonTodosLosProductos.click()
+}
 
 
 export const todosLosProductos = async () => {
@@ -22,7 +23,7 @@ export const todosLosProductos = async () => {
     let pantalones = await getAllPantalones()
     let camisetas = await getAllCamisetas()
     botonTodosLosProductos.addEventListener("click", () => {
-        title.innerText="Todos los productos"
+        title.innerText = "Todos los productos"
         botonTodosLosProductos.classList.add("all__selector")
         botonAbrigos.classList.remove("all__selector")
         botonCamisetas.classList.remove("all__selector")
@@ -43,7 +44,7 @@ export const todosLosProductos = async () => {
                         <p>Abrigo 0${i}</p>
                         <div class="purchase">
                             <p class="price">${abrigo.precio}$</p>
-                            <button>Agregar</button>
+                            <button id="agregarProducto">Agregar</button>
                         </div>
                     </div>
                 </div>
@@ -64,7 +65,7 @@ export const todosLosProductos = async () => {
                         <p>Camiseta 0${j}</p>
                         <div class="purchase">
                             <p class="price">${camiseta.precio}$</p>
-                            <button>Agregar</button>
+                            <button id="agregarProducto">Agregar</button>
                         </div>
                     </div>
         `
@@ -85,12 +86,20 @@ export const todosLosProductos = async () => {
                         <p>Pantalon 0${k}</p>
                         <div class="purchase">
                             <p class="price">${pantalon.precio}$</p>
-                            <button>Agregar</button>
+                            <button id="agregarProducto">Agregar</button>
                         </div>
                     </div>
         `
             k++
             contenedorProductos.appendChild(div, p)
+        });
+        let botones=document.querySelectorAll("#agregarProducto")
+        console.log(botones);
+        botones.forEach(boton => {
+            boton.addEventListener("click",()=>{
+                numero.innerText=numeroval+=1
+
+            })
         });
     })
 
@@ -101,7 +110,7 @@ export const Abrigos = async () => {
 
     let abrigos = await getAllAbrigo()
     botonAbrigos.addEventListener("click", () => {
-        title.innerText="Abrigos"
+        title.innerText = "Abrigos"
         botonAbrigos.classList.add("all__selector")
         botonTodosLosProductos.classList.remove("all__selector")
         botonCamisetas.classList.remove("all__selector")
@@ -120,13 +129,21 @@ export const Abrigos = async () => {
                         <p>Abrigo 0${i}</p>
                         <div class="purchase">
                             <p class="price">${abrigo.precio}$</p>
-                            <button>Agregar</button>
+                            <button id="agregarProducto">Agregar</button>
                         </div>
                     </div>
                 </div>
         `
             i++
             contenedorProductos.appendChild(div, p)
+        });
+        let botones=document.querySelectorAll("#agregarProducto")
+        console.log(botones);
+        botones.forEach(boton => {
+            boton.addEventListener("click",()=>{
+                numero.innerText=numeroval+=1
+
+            })
         });
     })
 }
@@ -136,7 +153,7 @@ export const Camisetas = async () => {
 
     let camisetas = await getAllCamisetas()
     botonCamisetas.addEventListener("click", () => {
-        title.innerText="Camisetas"
+        title.innerText = "Camisetas"
         botonTodosLosProductos.classList.remove("all__selector")
         botonAbrigos.classList.remove("all__selector")
         botonPantalones.classList.remove("all__selector")
@@ -155,13 +172,21 @@ export const Camisetas = async () => {
                         <p>Camiseta 0${i}</p>
                         <div class="purchase">
                             <p class="price">${camiseta.precio}$</p>
-                            <button>Agregar</button>
+                            <button id="agregarProducto">Agregar</button>
                         </div>
                     </div>
                 </div>
         `
             i++
             contenedorProductos.appendChild(div, p)
+        });
+        let botones=document.querySelectorAll("#agregarProducto")
+        console.log(botones);
+        botones.forEach(boton => {
+            boton.addEventListener("click",()=>{
+                numero.innerText=numeroval+=1
+
+            })
         });
     })
 }
@@ -171,7 +196,7 @@ export const Pantalones = async () => {
 
     let pantalones = await getAllPantalones()
     botonPantalones.addEventListener("click", () => {
-        title.innerText="Pantalones"
+        title.innerText = "Pantalones"
         botonTodosLosProductos.classList.remove("all__selector")
         botonAbrigos.classList.remove("all__selector")
         botonCamisetas.classList.remove("all__selector")
@@ -191,7 +216,7 @@ export const Pantalones = async () => {
                         <p>Camiseta 0${i}</p>
                         <div class="purchase">
                             <p class="price">${pantalon.precio}$</p>
-                            <button>Agregar</button>
+                            <button id="agregarProducto">Agregar</button>
                         </div>
                     </div>
                 </div>
@@ -199,5 +224,16 @@ export const Pantalones = async () => {
             i++
             contenedorProductos.appendChild(div, p)
         });
+        let botones=document.querySelectorAll("#agregarProducto")
+        console.log(botones);
+        botones.forEach(boton => {
+            boton.addEventListener("click",()=>{
+                numero.innerText=numeroval+=1
+
+            })
+        });
     })
 }
+
+
+
